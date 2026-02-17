@@ -15,6 +15,17 @@ const authRoutes = require("./routes/authRoutes");
 
 
 const app = express();
+/**
+ * HEALTH CHECK ROUTE
+ */
+app.get("/api/health", (req, res) => {
+    res.status(200).json({
+        success: true,
+        message: "API is healthy",
+        environment: process.env.NODE_ENV,
+        timestamp: new Date()
+    });
+});
 
 // Middleware
 app.use(cors());
