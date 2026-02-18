@@ -17,7 +17,10 @@ router.get("/my", authenticateUser, getMyOrders);
  * @desc    Admin - Get all orders
  * @access  Admin only
  */
-router.get("/", authenticateUser, authorizeAdmin, getAllOrders);
+router.get("/", authenticateUser, getMyOrders);
+
+router.get("/all", authenticateUser, authorizeAdmin, getAllOrders);
+
 
 /**
  * @route   PUT /api/orders/:id/status
